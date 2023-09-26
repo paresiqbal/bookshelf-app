@@ -21,7 +21,7 @@ function addBook() {
 
 function createBook(bookTitle, bookAuthor, bookYear, isCompleted) {
   const cover = document.createElement("img");
-  cover.setAttribute("src", "assets/coverbook.jpg");
+  cover.setAttribute("src", "assets/book-close.png");
   cover.setAttribute("alt", "coverbook");
 
   const bookImage = document.createElement("div");
