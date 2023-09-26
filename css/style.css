@@ -7,7 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: #0d1117;
+  background: #333;
   color: white;
 }
 
@@ -20,8 +20,9 @@ header {
 
 header h1 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 50px;
+  font-size: 52px;
   font-weight: bold;
+  color: #ca254d;
 }
 
 header img {
@@ -53,10 +54,6 @@ header img {
   font-style: italic;
   text-align: center;
   margin: 10px;
-}
-
-.fa-heart {
-  color: red;
 }
 
 .form-group {
@@ -111,7 +108,7 @@ header img {
 }
 
 .input:focus ~ .placeholder {
-  color: red;
+  color: #df64cf;
 }
 
 .btn-submit {
@@ -127,7 +124,7 @@ header img {
 }
 
 .btn-submit:active {
-  background: #515161;
+  background: #df64cf;
 }
 
 .library {
@@ -169,7 +166,7 @@ header img {
 }
 
 .search-btn {
-  color: red;
+  color: #df64cf;
   float: right;
   width: 30px;
   height: 30px;
