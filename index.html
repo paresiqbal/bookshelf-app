@@ -4,15 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header>
+      <img src="./assets/book.png" alt="logo" aria-label="Book" />
       <h1>My Bookshelf</h1>
     </header>
+
     <main>
-      <div>Input</div>
-      <div>Display</div>
+      <form id="form" class="form-input">
+        <div>
+          <label for="title" class="placeholder">Title</label>
+          <input id="title" class="input" type="text" required />
+        </div>
+        <div>
+          <label for="author" class="placeholder">Author</label>
+          <input id="author" class="input" type="text" required />
+        </div>
+        <div>
+          <label for="year" class="placeholder">Yeah</label>
+          <input id="year" class="input" type="number" required />
+        </div>
+        <input type="submit" value="Add book" name="submit" class="submit" />
+      </form>
+
+      <div class="display-book">
+        <div class="search">
+          <input
+            id="search"
+            class="search-input"
+            type="text"
+            placeholder="Search..."
+          />
+          <a href="#" class="search-btn">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
+        <div class="rack">
+          <h2>Not Finish</h2>
+          <div class="list-rack" id="notFinish"></div>
+        </div>
+        <div class="rack">
+          <h2>Finish</h2>
+          <div class="list-rack" id="finish"></div>
+        </div>
+      </div>
     </main>
+
     <footer>
       <h2>This is Footer</h2>
     </footer>
