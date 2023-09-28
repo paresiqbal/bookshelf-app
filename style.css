@@ -29,7 +29,8 @@ header img {
   width: 80px;
 }
 
-/* Body */
+/* Main Body */
+/* Form Input */
 main {
   display: flex;
   gap: 20px;
@@ -70,4 +71,40 @@ main {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* book racks */
+.display-book {
+  flex-basis: 70%;
+  display: flex;
+  min-height: 400px;
+  position: relative;
+}
+
+.rack {
+  flex-basis: 50%;
+  margin: 30px 10px;
+}
+
+.sub-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search {
+  position: absolute;
+  top: -53px;
+  right: 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-input {
+  border: 0;
+}
+
+.search-input:focus {
+  outline: none;
 }
