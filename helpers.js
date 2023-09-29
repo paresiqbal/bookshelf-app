@@ -50,4 +50,10 @@ function createBook(bookTitle, bookAuthor, bookYear, bookStatus) {
     button.classList.add("uncompleted");
     button.append(createCompletedButton(), createTrashButton());
   }
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("book");
+  wrapper.append(bookImage, description, button);
+
+  return wrapper;
 }
