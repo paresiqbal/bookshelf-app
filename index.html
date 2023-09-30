@@ -20,45 +20,90 @@
     </header>
 
     <main>
-      <div class="container form-input">
-        <form id="form" class="form" action="#">
-          <div class="form-group">
-            <label for="title" class="placeholder">Title</label>
-            <input id="title" class="input" type="text" required />
+      <section class="input_section">
+        <h2>Masukkan Buku Baru</h2>
+        <form id="inputBook">
+          <div class="input">
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitle" type="text" required />
           </div>
-          <div class="form-group">
-            <label for="author" class="placeholder">Author</label>
-            <input id="author" class="input" type="text" required />
+          <div class="input">
+            <label for="inputBookAuthor">Penulis</label>
+            <input id="inputBookAuthor" type="text" required />
           </div>
-          <div class="form-group">
-            <label for="year" class="placeholder">Yeah</label>
-            <input id="year" class="input" type="number" required />
+          <div class="input">
+            <label for="inputBookYear">Tahun Terbit</label>
+            <input
+              id="inputBookYear"
+              type="number"
+              min="1990"
+              value="2022"
+              required
+            />
           </div>
-          <input type="submit" value="Add book" name="submit" class="submit" />
+          <div class="input_inline">
+            <label for="inputBookIsComplete">Selesai dibaca</label>
+            <input id="inputBookIsComplete" type="checkbox" />
+          </div>
+          <button id="bookSubmit" type="submit" class="btn-green">
+            Tambahkan Buku Ke Rak
+          </button>
         </form>
-      </div>
+      </section>
 
-      <div class="container display-book">
-        <div class="search">
+      <section class="search_section">
+        <h2>Cari Buku pada Rak</h2>
+        <form id="searchBook">
+          <label for="searchBookTitle">Judul</label>
           <input
-            id="search"
-            class="search-input"
+            id="searchBookTitle"
             type="text"
-            placeholder="Search..."
+            placeholder="masukkan judul buku"
           />
-          <a href="#" class="search-btn">
-            <i class="fas fa-search"></i>
-          </a>
+          <button id="searchSubmit" type="submit" class="btn-green">
+            <i class="fa-solid fa-magnifying-glass"></i> Cari
+          </button>
+        </form>
+      </section>
+
+      <section class="book_shelf_container">
+        <button id="resetRak" class="btn-red" onclick="resetRak()">
+          <i class="fa-solid fa-trash"></i> Kosongkan Rak
+        </button>
+        <div class="book_shelf book_read">
+          <h2>Belum selesai dibaca</h2>
+          <div id="incompleteBookshelfList" class="book_list">
+            <!-- element is the result of the showBook function -->
+          </div>
         </div>
-        <div class="rack">
-          <h2 class="sub-heading">Not Finish</h2>
-          <div class="list-rack" id="notFinish"></div>
+
+        <div class="book_shelf">
+          <h2>Selesai dibaca</h2>
+          <div id="completeBookshelfList" class="book_list">
+            <!-- element is the result of the showBook function -->
+          </div>
         </div>
-        <div class="rack">
-          <h2>Finish</h2>
-          <div class="list-rack" id="finish"></div>
-        </div>
-      </div>
+      </section>
+      <section class="input_section input_edit_section">
+        <form id="editData">
+          <div class="input">
+            <label for="inputEditTitle">Judul</label>
+            <input id="inputEditTitle" type="text" required />
+          </div>
+          <div class="input">
+            <label for="inputEditAuthor">Penulis</label>
+            <input id="inputEditAuthor" type="text" required />
+          </div>
+          <div class="input">
+            <label for="inputEditYear">Tahun Terbit</label>
+            <input id="inputEditYear" type="number" value="2022" required />
+          </div>
+          <button id="bookEditCancel">Batal</button>
+          <button id="bookEditSubmit" type="submit" class="btn-green">
+            Simpan
+          </button>
+        </form>
+      </section>
     </main>
 
     <footer>
@@ -66,5 +111,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
