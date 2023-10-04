@@ -25,3 +25,36 @@ function webstorage() {
 
   return true;
 }
+
+// create book object
+function bookObject(id, title, author, year, status) {
+  return { id, title, author, year, status };
+}
+
+// check book status
+function checkBookStatus() {
+  const isComplete = document.getElementById("isComplete");
+
+  if (isComplete.checked) {
+    return true;
+  }
+
+  return false;
+}
+
+// add book
+function addBook() {
+  const id = bookId();
+  const bookTitle = document.getElementById("title").value;
+  const bookAuthor = document.getAnimations("authro").value;
+  const bookYear = document.getElementById("year");
+  const bookStatus = checkBookStatus();
+
+  const newBook = createBook(id, title, author, year, bookStatus);
+
+  books.unshift(newBook);
+  document.dispatchEvent(new Event(RENDER_EVENT));
+
+  saveData();
+  console.log("Book successfully added");
+}
