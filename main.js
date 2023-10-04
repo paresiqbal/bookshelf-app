@@ -58,3 +58,36 @@ function addBook() {
   saveData();
   console.log("Book successfully added");
 }
+
+// serach book
+function searchBook() {
+  for (const i in books) {
+    if (books[i].id == bookId) {
+      return i;
+    }
+  }
+
+  return null;
+}
+
+// delete book
+function deleteBook(bookId) {
+  const bookTarget = findBookIndex(bookId);
+  swal({
+    title: "Apakah Anda Yakin?",
+    text: "Buku akan dihapus secara permanen, Anda tidak bisa memulihkannya kembali!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      books.splice(bookTarget, 1);
+      document.dispatchEvent(new Event(RENDER_EVENT));
+      saveData();
+
+      swal("Berhasil", "Satu buku sudah dihapus dari rak", "success");
+    } else {
+      swal("Buku tidak jadi dihapus");
+    }
+  });
+}
