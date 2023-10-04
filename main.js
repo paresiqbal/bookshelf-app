@@ -128,3 +128,59 @@ function changeBookStatus(bookId) {
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }
+
+// function search book
+function searchBooks() {
+  const inputSearchValue = document
+    .getElementById("searchBookTitle")
+    .value.toLowerCase();
+  const incompleteBookShelf = document.getElementById(
+    "incompleteBookshelfList"
+  );
+  const completeBookShelf = document.getElementById("completeBookshelfList");
+  incompleteBookShelf.innerHTML = "";
+  completeBookShelf.innerHTML = "";
+
+  if (inputSearchValue == "") {
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    return;
+  }
+
+  for (const book of books) {
+    if (book.title.toLowerCase().includes(inputSearchValue)) {
+      if (book.isCompleted == false) {
+        let el = `
+           <article class="book_item">
+              <h3>${book.title}</h3>
+              <p>Penulis : ${book.author}</p>
+              <p>Tahun Terbit : ${book.year}</p>
+
+              <div class="action">
+                 <button class="btn-green" onclick="changeBookStatus(${book.id})">Selesai di Baca</button>
+                 <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
+                 <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
+                 </div>
+           </article>
+           `;
+
+        incompleteBookShelf.innerHTML += el;
+      } else {
+        let el = `
+           <article class="book_item">
+              <h3>${book.title}</h3>
+              <p>Penulis : ${book.author}</p>
+              <p>Tahun Terbit : ${book.year}</p>
+
+              <div class="action">
+                 <button class="btn-green" onclick="changeBookStatus(${book.id})">Belum selesai di Baca</button>
+                 <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
+                 <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
+                 </div>
+           </article>
+           `;
+
+        completeBookShelf.innerHTML += el;
+      }
+    }
+  }
+}
