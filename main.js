@@ -112,3 +112,19 @@ function deleteAllBook() {
     }
   });
 }
+
+// change status of the book
+function changeBookStatus(bookId) {
+  const bookId = bookId;
+
+  for (const i in books) {
+    if (i === bookId) {
+      books[i].isComplete = false;
+    } else {
+      books[i].isComplete = true;
+    }
+  }
+
+  document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
+}
