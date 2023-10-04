@@ -70,12 +70,12 @@ function searchBook() {
   return null;
 }
 
-// delete book
+// delete one book
 function deleteBook(bookId) {
   const bookTarget = findBookIndex(bookId);
   swal({
-    title: "Apakah Anda Yakin?",
-    text: "Buku akan dihapus secara permanen, Anda tidak bisa memulihkannya kembali!",
+    title: "Delete this book ?",
+    text: "Once it's deleted cannot be restore",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -85,9 +85,30 @@ function deleteBook(bookId) {
       document.dispatchEvent(new Event(RENDER_EVENT));
       saveData();
 
-      swal("Berhasil", "Satu buku sudah dihapus dari rak", "success");
+      swal("Success", "Book deleted", "success");
     } else {
-      swal("Buku tidak jadi dihapus");
+      swal("Book not deleted");
+    }
+  });
+}
+
+// delete all book
+function deleteAllBook() {
+  swal({
+    title: "Apakah Anda Yakin?",
+    text: "Semua buku akan dihapus secara permanen dari rak, Anda tidak bisa memulihkannya kembali!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      books.splice(0, books.length);
+      document.dispatchEvent(new Event(RENDER_EVENT));
+      saveData();
+
+      swal("Berhasil", "Semua buku sudah dihapus dari rak", "success");
+    } else {
+      swal("Rak batal dikosongkan");
     }
   });
 }
