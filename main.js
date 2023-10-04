@@ -3,7 +3,7 @@ const RENDER_EVENT = "displayBook";
 const STORAGE = "Bookshelf";
 const form = document.getElementById("addBook");
 const searchBookTitle = document.getElementById("searchTitle");
-const searchBook = document.getElementById("searchBook");
+const formSearchBook = document.getElementById("searchBook");
 const bookId = () => +new Date();
 
 searchBookTitle.addEventListener("keyup", (event) => {
@@ -11,7 +11,7 @@ searchBookTitle.addEventListener("keyup", (event) => {
   searchBooks();
 });
 
-searchBook.addEventListener("submit", (event) => {
+formSearchBook.addEventListener("submit", (event) => {
   event.preventDefault();
   searchBooks();
 });
@@ -68,119 +68,4 @@ function searchBook() {
   }
 
   return null;
-}
-
-// delete one book
-function deleteBook(bookId) {
-  const bookTarget = findBookIndex(bookId);
-  swal({
-    title: "Delete this book ?",
-    text: "Once it's deleted cannot be restore",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  }).then((willDelete) => {
-    if (willDelete) {
-      books.splice(bookTarget, 1);
-      document.dispatchEvent(new Event(RENDER_EVENT));
-      saveData();
-
-      swal("Success", "Book deleted", "success");
-    } else {
-      swal("Book not deleted");
-    }
-  });
-}
-
-// delete all book
-function deleteAllBook() {
-  swal({
-    title: "Apakah Anda Yakin?",
-    text: "Semua buku akan dihapus secara permanen dari rak, Anda tidak bisa memulihkannya kembali!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  }).then((willDelete) => {
-    if (willDelete) {
-      books.splice(0, books.length);
-      document.dispatchEvent(new Event(RENDER_EVENT));
-      saveData();
-
-      swal("Berhasil", "Semua buku sudah dihapus dari rak", "success");
-    } else {
-      swal("Rak batal dikosongkan");
-    }
-  });
-}
-
-// change status of the book
-function changeBookStatus(bookId) {
-  const bookId = bookId;
-
-  for (const i in books) {
-    if (i === bookId) {
-      books[i].isComplete = false;
-    } else {
-      books[i].isComplete = true;
-    }
-  }
-
-  document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData();
-}
-
-// function search book
-function searchBooks() {
-  const inputSearchValue = document
-    .getElementById("searchBookTitle")
-    .value.toLowerCase();
-  const incompleteBookShelf = document.getElementById(
-    "incompleteBookshelfList"
-  );
-  const completeBookShelf = document.getElementById("completeBookshelfList");
-  incompleteBookShelf.innerHTML = "";
-  completeBookShelf.innerHTML = "";
-
-  if (inputSearchValue == "") {
-    document.dispatchEvent(new Event(RENDER_EVENT));
-    return;
-  }
-
-  for (const book of books) {
-    if (book.title.toLowerCase().includes(inputSearchValue)) {
-      if (book.isCompleted == false) {
-        let el = `
-           <article class="book_item">
-              <h3>${book.title}</h3>
-              <p>Penulis : ${book.author}</p>
-              <p>Tahun Terbit : ${book.year}</p>
-
-              <div class="action">
-                 <button class="btn-green" onclick="changeBookStatus(${book.id})">Selesai di Baca</button>
-                 <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
-                 <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
-                 </div>
-           </article>
-           `;
-
-        incompleteBookShelf.innerHTML += el;
-      } else {
-        let el = `
-           <article class="book_item">
-              <h3>${book.title}</h3>
-              <p>Penulis : ${book.author}</p>
-              <p>Tahun Terbit : ${book.year}</p>
-
-              <div class="action">
-                 <button class="btn-green" onclick="changeBookStatus(${book.id})">Belum selesai di Baca</button>
-                 <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
-                 <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
-                 </div>
-           </article>
-           `;
-
-        completeBookShelf.innerHTML += el;
-      }
-    }
-  }
 }
