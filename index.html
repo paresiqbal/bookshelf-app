@@ -22,17 +22,17 @@
     <main>
       <section class="input_section">
         <h2>Masukkan Buku Baru</h2>
-        <form id="addBook">
+        <form id="inputBook">
           <div class="input">
-            <label for="title">Judul</label>
-            <input id="title" type="text" required />
+            <label for="inputBookTitle">Judul</label>
+            <input id="inputBookTitle" type="text" required />
           </div>
           <div class="input">
-            <label for="author">Penulis</label>
-            <input id="author" type="text" required />
+            <label for="inputBookAuthor">Penulis</label>
+            <input id="inputBookAuthor" type="text" required />
           </div>
           <div class="input">
-            <label for="year">Tahun Terbit</label>
+            <label for="inputBookYear">Tahun Terbit</label>
             <input
               id="inputBookYear"
               type="number"
@@ -42,8 +42,8 @@
             />
           </div>
           <div class="input_inline">
-            <label for="isComplete">Selesai dibaca</label>
-            <input id="isComplete" type="checkbox" />
+            <label for="inputBookIsComplete">Selesai dibaca</label>
+            <input id="inputBookIsComplete" type="checkbox" />
           </div>
           <button id="bookSubmit" type="submit" class="btn-green">
             Tambahkan Buku Ke Rak
@@ -54,9 +54,9 @@
       <section class="search_section">
         <h2>Cari Buku pada Rak</h2>
         <form id="searchBook">
-          <label for="searchTitle">Judul</label>
+          <label for="searchBookTitle">Judul</label>
           <input
-            id="searchTitle"
+            id="searchBookTitle"
             type="text"
             placeholder="masukkan judul buku"
           />
