@@ -18,13 +18,13 @@ function checkWebStorage() {
 }
 
 // generate book object
-const generateBookItem = (id, title, author, year, isCompleted) => {
+const generateBookItem = (id, title, author, year, bookStatus) => {
   return {
     id,
     title,
     author,
     year,
-    isCompleted,
+    bookStatus,
   };
 };
 
@@ -42,7 +42,7 @@ function addBook() {
   const bookTitle = document.getElementById("inputBookTitle").value;
   const bookAuthor = document.getElementById("inputBookAuthor").value;
   const bookYear = document.getElementById("inputBookYear").value;
-  const isCompleted = checkStatusBook();
+  const bookStatus = checkStatusBook();
 
   const id = bookId();
   const newBook = generateBookItem(
@@ -50,7 +50,7 @@ function addBook() {
     bookTitle,
     bookAuthor,
     bookYear,
-    isCompleted
+    bookStatus
   );
 
   books.unshift(newBook);
@@ -118,15 +118,15 @@ function changeBookStatus(bookId) {
   const bookIndex = findBookIndex(bookId);
   for (const index in books) {
     if (index === bookIndex) {
-      if (books[index].isCompleted === true) {
-        books[index].isCompleted = false;
+      if (books[index].bookStatus === true) {
+        books[index].bookStatus = false;
         swal(
           "Berhasil",
           "Buku kamu sudah dipindahkan ke rak belum selesai dibaca",
           "success"
         );
       } else {
-        books[index].isCompleted = true;
+        books[index].bookStatus = true;
         swal(
           "Berhasil",
           "Buku kamu sudah dipindahkan ke rak selesai dibaca",
@@ -159,7 +159,7 @@ function searchBooks() {
 
   for (const book of books) {
     if (book.title.toLowerCase().includes(inputSearchValue)) {
-      if (book.isCompleted == false) {
+      if (book.bookStatus == false) {
         let el = `
             <article class="book_item">
                <h3>${book.title}</h3>
@@ -270,7 +270,7 @@ function showBook(books = []) {
   completeBookShelf.innerHTML = "";
 
   books.forEach((book) => {
-    if (book.isCompleted == false) {
+    if (book.bookStatus == false) {
       let el = `
             <article class="book_item">
                <h3>${book.title}</h3>
