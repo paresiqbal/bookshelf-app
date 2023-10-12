@@ -61,7 +61,7 @@ function addBook() {
 }
 
 // find book index using book id
-function findBookIndex(bookId) {
+function searchBookIndex(bookId) {
   for (const index in books) {
     if (books[index].id == bookId) {
       return index;
@@ -72,7 +72,7 @@ function findBookIndex(bookId) {
 
 // function remove book
 function removeBook(bookId) {
-  const bookTarget = findBookIndex(bookId);
+  const bookTarget = searchBookIndex(bookId);
   swal({
     title: "Apakah Anda Yakin?",
     text: "Buku akan dihapus secara permanen, Anda tidak bisa memulihkannya kembali!",
@@ -115,7 +115,7 @@ function resetRak() {
 
 //change status book (read or unread) / click the button
 function changeBookStatus(bookId) {
-  const bookIndex = findBookIndex(bookId);
+  const bookIndex = searchBookIndex(bookId);
   for (const index in books) {
     if (index === bookIndex) {
       if (books[index].bookStatus === true) {
@@ -207,7 +207,7 @@ function editBookData(bookId) {
   const cancelEdit = document.getElementById("bookEditCancel");
   const SubmitEdit = document.getElementById("bookEditSubmit");
 
-  bookTarget = findBookIndex(bookId);
+  bookTarget = searchBookIndex(bookId);
 
   // set old value
   editTitle.setAttribute("value", books[bookTarget].title);
