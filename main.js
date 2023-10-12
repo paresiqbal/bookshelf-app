@@ -93,8 +93,8 @@ function removeBook(bookId) {
 // reset bookshelf to empety
 function resetRak() {
   swal({
-    title: "Apakah Anda Yakin?",
-    text: "Semua buku akan dihapus secara permanen dari rak, Anda tidak bisa memulihkannya kembali!",
+    title: "Are you sure want to delete all book ?",
+    text: "All book's will be deleted and deleted book can't be restore !",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -104,9 +104,11 @@ function resetRak() {
       document.dispatchEvent(new Event(RENDER_BOOK));
       saveData();
 
-      swal("Berhasil", "Semua buku sudah dihapus dari rak", "success");
-    } else {
-      swal("Rak batal dikosongkan");
+      swal(
+        "Success",
+        "All book's successfully deleted from the shelf",
+        "success"
+      );
     }
   });
 }
