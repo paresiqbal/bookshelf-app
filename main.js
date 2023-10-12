@@ -167,9 +167,9 @@ function searchBooks() {
                <p>Tahun Terbit : ${book.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Selesai di Baca</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
+                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Done read</button>
+                  <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
+                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit book</button>
                   </div>
             </article>
             `;
@@ -183,9 +183,9 @@ function searchBooks() {
                <p>Tahun Terbit : ${book.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Belum selesai di Baca</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
+                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Not yet read</button>
+                  <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
+                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit book</button>
                   </div>
             </article>
             `;
