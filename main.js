@@ -93,7 +93,7 @@ function deleteBook(bookId) {
 }
 
 // reset bookshelf to empety
-function resetRak() {
+function resetShelf() {
   swal({
     title: "Apakah Anda Yakin?",
     text: "Semua buku akan dihapus secara permanen dari rak, Anda tidak bisa memulihkannya kembali!",
@@ -322,11 +322,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // render event addeventlistener
 document.addEventListener(RENDER_EVENT, () => {
-  const btnResetRak = document.getElementById("resetRak");
+  const btnResetShelf = document.getElementById("resetShelf");
   if (books.length <= 0) {
-    btnResetRak.style.display = "none";
+    btnResetShelf.style.display = "none";
   } else {
-    btnResetRak.style.display = "block";
+    btnResetShelf.style.display = "block";
   }
 
   showBook(books);
