@@ -30,8 +30,8 @@ const createBookObject = (id, title, author, year, bookStatus) => {
 
 // checkbox function
 function checkStatusBook() {
-  const isCheckComplete = document.getElementById("inputBookIsComplete");
-  if (isCheckComplete.checked) {
+  const isChecked = document.getElementById("inputBookStatus");
+  if (isChecked.checked) {
     return true;
   }
   return false;
@@ -41,7 +41,7 @@ function checkStatusBook() {
 function addBook() {
   const bookTitle = document.getElementById("inputTitle").value;
   const bookAuthor = document.getElementById("inputAuthor").value;
-  const bookYear = document.getElementById("inputBookYear").value;
+  const bookYear = document.getElementById("inputYear").value;
   const bookStatus = checkStatusBook();
 
   const id = bookId();
@@ -57,7 +57,7 @@ function addBook() {
   document.dispatchEvent(new Event(RENDER_BOOK));
   saveData();
 
-  swal("Berhasil", "Buku baru sudah ditambahkan ke rak", "success");
+  swal("Success", "Book successfully added", "success");
 }
 
 // find book index using book id
@@ -241,7 +241,7 @@ function saveData() {
     const parsed = JSON.stringify(books);
     localStorage.setItem(STORAGE_KEY, parsed);
 
-    document.dispatchEvent(new Event(RENDER_EVENT));
+    document.dispatchEvent(new Event(RENDER_BOOK));
   }
 }
 
@@ -255,7 +255,7 @@ function loadDataFromStorage() {
       books.unshift(book);
     });
   }
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  document.dispatchEvent(new Event(RENDER_BOOK));
   return books;
 }
 
