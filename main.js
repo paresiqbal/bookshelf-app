@@ -169,7 +169,7 @@ function searchBooks() {
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Done read</button>
                   <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit book</button>
+                  <button class="btn-orange" onclick="editBook(${book.id})">Edit book</button>
                   </div>
             </article>
             `;
@@ -185,7 +185,7 @@ function searchBooks() {
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Not yet read</button>
                   <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})">Edit book</button>
+                  <button class="btn-orange" onclick="editBook(${book.id})">Edit book</button>
                   </div>
             </article>
             `;
@@ -197,7 +197,7 @@ function searchBooks() {
 }
 
 // function edit book data
-function editBookData(bookId) {
+function editBook(bookId) {
   const sectionEdit = document.querySelector(".input_edit_section");
   sectionEdit.style.display = "flex";
   const editTitle = document.getElementById("inputEditTitle");
@@ -280,7 +280,7 @@ function showBook(books = []) {
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-circle-check"></i></button>
                   <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn-orange" onclick="editBook(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                </div>
             </article>
             `;
@@ -296,7 +296,7 @@ function showBook(books = []) {
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-rotate-left"></i></button>
                   <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn-orange" onclick="editBook(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                   </div>
             </article>
             `;
