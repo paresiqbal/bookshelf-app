@@ -116,22 +116,22 @@ function resetRak() {
 //change status book (read or unread) / click the button
 function changeBookStatus(bookId) {
   const bookIndex = searchBookIndex(bookId);
-  for (const index in books) {
-    if (index === bookIndex) {
-      if (books[index].bookStatus === true) {
-        books[index].bookStatus = false;
-        swal(
-          "Berhasil",
-          "Buku kamu sudah dipindahkan ke rak belum selesai dibaca",
-          "success"
-        );
+  for (const i in books) {
+    if (i === bookIndex) {
+      if (books[i].bookStatus === true) {
+        books[i].bookStatus = false;
+        // swal(
+        //   "Success",
+        //   "Buku kamu sudah dipindahkan ke rak belum selesai dibaca",
+        //   "success"
+        // );
       } else {
-        books[index].bookStatus = true;
-        swal(
-          "Berhasil",
-          "Buku kamu sudah dipindahkan ke rak selesai dibaca",
-          "success"
-        );
+        books[i].bookStatus = true;
+        // swal(
+        //   "Berhasil",
+        //   "Buku kamu sudah dipindahkan ke rak selesai dibaca",
+        //   "success"
+        // );
       }
     }
   }
