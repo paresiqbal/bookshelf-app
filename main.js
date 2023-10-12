@@ -71,7 +71,7 @@ function findBookIndex(bookId) {
 }
 
 // function remove book
-function removeBook(bookId) {
+function deleteBook(bookId) {
   const bookTarget = findBookIndex(bookId);
   swal({
     title: "Apakah Anda Yakin?",
@@ -168,7 +168,7 @@ function searchBooks() {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Selesai di Baca</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
+                  <button class="btn-red" onclick="deleteBook(${book.id})">Hapus Buku</button>
                   <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
                   </div>
             </article>
@@ -184,7 +184,7 @@ function searchBooks() {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Belum selesai di Baca</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
+                  <button class="btn-red" onclick="deleteBook(${book.id})">Hapus Buku</button>
                   <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
                   </div>
             </article>
@@ -279,7 +279,7 @@ function showBook(books = []) {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-circle-check"></i></button>
-                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-red" onclick="deleteBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
                   <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                </div>
             </article>
@@ -295,7 +295,7 @@ function showBook(books = []) {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-red" onclick="deleteBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
                   <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                   </div>
             </article>
