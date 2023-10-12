@@ -1,5 +1,5 @@
 const books = [];
-const RENDER_EVENT = "render-book";
+const RENDER_BOOK = "render-book";
 const STORAGE_KEY = "Bookshelf";
 const form = document.getElementById("inputBook");
 const formSearchBook = document.getElementById("searchBook");
@@ -39,8 +39,8 @@ function checkStatusBook() {
 
 // add book to bookshelf
 function addBook() {
-  const bookTitle = document.getElementById("inputBookTitle").value;
-  const bookAuthor = document.getElementById("inputBookAuthor").value;
+  const bookTitle = document.getElementById("inputTitle").value;
+  const bookAuthor = document.getElementById("inputAuthor").value;
   const bookYear = document.getElementById("inputBookYear").value;
   const bookStatus = checkStatusBook();
 
@@ -54,7 +54,7 @@ function addBook() {
   );
 
   books.unshift(newBook);
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  document.dispatchEvent(new Event(RENDER_BOOK));
   saveData();
 
   swal("Berhasil", "Buku baru sudah ditambahkan ke rak", "success");
@@ -71,7 +71,7 @@ function findBookIndex(bookId) {
 }
 
 // function remove book
-function deleteBook(bookId) {
+function removeBook(bookId) {
   const bookTarget = findBookIndex(bookId);
   swal({
     title: "Apakah Anda Yakin?",
@@ -82,7 +82,7 @@ function deleteBook(bookId) {
   }).then((willDelete) => {
     if (willDelete) {
       books.splice(bookTarget, 1);
-      document.dispatchEvent(new Event(RENDER_EVENT));
+      document.dispatchEvent(new Event(RENDER_BOOK));
       saveData();
 
       swal("Berhasil", "Satu buku sudah dihapus dari rak", "success");
@@ -93,7 +93,7 @@ function deleteBook(bookId) {
 }
 
 // reset bookshelf to empety
-function resetShelf() {
+function resetRak() {
   swal({
     title: "Apakah Anda Yakin?",
     text: "Semua buku akan dihapus secara permanen dari rak, Anda tidak bisa memulihkannya kembali!",
@@ -103,7 +103,7 @@ function resetShelf() {
   }).then((willDelete) => {
     if (willDelete) {
       books.splice(0, books.length);
-      document.dispatchEvent(new Event(RENDER_EVENT));
+      document.dispatchEvent(new Event(RENDER_BOOK));
       saveData();
 
       swal("Berhasil", "Semua buku sudah dihapus dari rak", "success");
@@ -136,7 +136,7 @@ function changeBookStatus(bookId) {
     }
   }
 
-  document.dispatchEvent(new Event(RENDER_EVENT));
+  document.dispatchEvent(new Event(RENDER_BOOK));
   saveData();
 }
 
@@ -153,7 +153,7 @@ function searchBooks() {
   completeBookShelf.innerHTML = "";
 
   if (inputSearchValue == "") {
-    document.dispatchEvent(new Event(RENDER_EVENT));
+    document.dispatchEvent(new Event(RENDER_BOOK));
     return;
   }
 
@@ -168,7 +168,7 @@ function searchBooks() {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Selesai di Baca</button>
-                  <button class="btn-red" onclick="deleteBook(${book.id})">Hapus Buku</button>
+                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
                   <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
                   </div>
             </article>
@@ -184,7 +184,7 @@ function searchBooks() {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})">Belum selesai di Baca</button>
-                  <button class="btn-red" onclick="deleteBook(${book.id})">Hapus Buku</button>
+                  <button class="btn-red" onclick="removeBook(${book.id})">Hapus Buku</button>
                   <button class="btn-orange" onclick="editBookData(${book.id})">Edit buku</button>
                   </div>
             </article>
@@ -220,7 +220,7 @@ function editBookData(bookId) {
     books[bookTarget].author = editAuthor.value;
     books[bookTarget].year = editYear.value;
 
-    document.dispatchEvent(new Event(RENDER_EVENT));
+    document.dispatchEvent(new Event(RENDER_BOOK));
     saveData();
     formEditData.reset();
     sectionEdit.style.display = "none";
@@ -279,7 +279,7 @@ function showBook(books = []) {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-circle-check"></i></button>
-                  <button class="btn-red" onclick="deleteBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
                   <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                </div>
             </article>
@@ -295,7 +295,7 @@ function showBook(books = []) {
 
                <div class="action">
                   <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button class="btn-red" onclick="deleteBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
                   <button class="btn-orange" onclick="editBookData(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                   </div>
             </article>
@@ -321,12 +321,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // render event addeventlistener
-document.addEventListener(RENDER_EVENT, () => {
-  const btnResetShelf = document.getElementById("resetShelf");
+document.addEventListener(RENDER_BOOK, () => {
+  const btnResetRak = document.getElementById("resetRak");
   if (books.length <= 0) {
-    btnResetShelf.style.display = "none";
+    btnResetRak.style.display = "none";
   } else {
-    btnResetShelf.style.display = "block";
+    btnResetRak.style.display = "block";
   }
 
   showBook(books);
