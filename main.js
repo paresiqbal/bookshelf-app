@@ -62,9 +62,9 @@ function addBook() {
 
 // find book index using book id
 function searchBookIndex(bookId) {
-  for (const index in books) {
-    if (books[index].id == bookId) {
-      return index;
+  for (const i in books) {
+    if (books[i].id == bookId) {
+      return i;
     }
   }
   return null;
