@@ -18,7 +18,7 @@ function checkWebStorage() {
 }
 
 // generate book object
-const generateBookItem = (id, title, author, year, bookStatus) => {
+const createBookObject = (id, title, author, year, bookStatus) => {
   return {
     id,
     title,
@@ -45,7 +45,7 @@ function addBook() {
   const bookStatus = checkStatusBook();
 
   const id = bookId();
-  const newBook = generateBookItem(
+  const newBook = createBookObject(
     id,
     bookTitle,
     bookAuthor,
