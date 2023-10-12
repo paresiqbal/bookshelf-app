@@ -74,8 +74,8 @@ function searchBookIndex(bookId) {
 function removeBook(bookId) {
   const bookTarget = searchBookIndex(bookId);
   swal({
-    title: "Apakah Anda Yakin?",
-    text: "Buku akan dihapus secara permanen, Anda tidak bisa memulihkannya kembali!",
+    title: "Are you sure want to delete ?",
+    text: "After deleting the book can't be restore",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -85,9 +85,7 @@ function removeBook(bookId) {
       document.dispatchEvent(new Event(RENDER_BOOK));
       saveData();
 
-      swal("Berhasil", "Satu buku sudah dihapus dari rak", "success");
-    } else {
-      swal("Buku tidak jadi dihapus");
+      swal("Success", "Book successfully deleted", "success");
     }
   });
 }
