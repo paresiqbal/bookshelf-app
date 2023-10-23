@@ -311,13 +311,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // render event addeventlistener
-document.addEventListener(RENDER_BOOK, () => {
+document.addEventListener("DOMContentLoaded", () => {
   const btnResetRack = document.getElementById("resetRack");
-  if (books.length <= 0) {
-    btnResetRack.style.display = "none";
-  } else {
-    btnResetRack.style.display = "block";
+  if (btnResetRack) {
+    // Check if the element exists
+    if (books.length <= 0) {
+      btnResetRack.style.display = "none";
+    } else {
+      btnResetRack.style.display = "block";
+    }
+    showBook(books);
   }
-
-  showBook(books);
 });
