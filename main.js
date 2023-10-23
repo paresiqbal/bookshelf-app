@@ -120,18 +120,8 @@ function changeBookStatus(bookId) {
     if (i === bookIndex) {
       if (books[i].bookStatus === true) {
         books[i].bookStatus = false;
-        // swal(
-        //   "Success",
-        //   "Buku kamu sudah dipindahkan ke rak belum selesai dibaca",
-        //   "success"
-        // );
       } else {
         books[i].bookStatus = true;
-        // swal(
-        //   "Berhasil",
-        //   "Buku kamu sudah dipindahkan ke rak selesai dibaca",
-        //   "success"
-        // );
       }
     }
   }
