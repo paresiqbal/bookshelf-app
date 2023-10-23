@@ -214,14 +214,14 @@ function editBook(bookId) {
     saveData();
     formEditData.reset();
     sectionEdit.style.display = "none";
-    swal("Berhasil", "Data bukumu sudah berhasil diedit", "success");
+    swal("Success", "Book data has been edited", "success");
   });
 
   cancelEdit.addEventListener("click", (e) => {
     e.preventDefault();
     sectionEdit.style.display = "none";
     formEditData.reset();
-    swal("Anda membatalkan untuk mengedit data buku");
+    swal("Cancel !");
   });
 }
 
@@ -312,11 +312,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // render event addeventlistener
 document.addEventListener(RENDER_BOOK, () => {
-  const btnResetRak = document.getElementById("resetRak");
+  const btnResetRack = document.getElementById("resetRack");
   if (books.length <= 0) {
-    btnResetRak.style.display = "none";
+    btnResetRack.style.display = "none";
   } else {
-    btnResetRak.style.display = "block";
+    btnResetRack.style.display = "block";
   }
 
   showBook(books);
