@@ -21,18 +21,18 @@
 
     <main>
       <section class="input_section">
-        <h2>Masukkan Buku Baru</h2>
+        <h2>Add new book</h2>
         <form id="inputBook">
           <div class="input">
-            <label for="inputTitle">Judul</label>
+            <label for="inputTitle">Title</label>
             <input id="inputTitle" type="text" required />
           </div>
           <div class="input">
-            <label for="inputAuthor">Penulis</label>
+            <label for="inputAuthor">Author</label>
             <input id="inputAuthor" type="text" required />
           </div>
           <div class="input">
-            <label for="inputYear">Tahun Terbit</label>
+            <label for="inputYear">Year</label>
             <input
               id="inputYear"
               type="number"
@@ -42,33 +42,33 @@
             />
           </div>
           <div class="input_inline">
-            <label for="inputBookStatus">Selesai dibaca</label>
+            <label for="inputBookStatus">Already Read</label>
             <input id="inputBookStatus" type="checkbox" />
           </div>
           <button id="bookSubmit" type="submit" class="btn-green">
-            Tambahkan Buku Ke Rak
+            Add book to rack
           </button>
         </form>
       </section>
 
       <section class="search_section">
-        <h2>Cari Buku pada Rak</h2>
+        <h2>Search book</h2>
         <form id="searchBook">
-          <label for="searchBookTitle">Judul</label>
+          <label for="searchBookTitle">Title</label>
           <input
             id="searchBookTitle"
             type="text"
-            placeholder="masukkan judul buku"
+            placeholder="add book title"
           />
           <button id="searchSubmit" type="submit" class="btn-green">
-            <i class="fa-solid fa-magnifying-glass"></i> Cari
+            <i class="fa-solid fa-magnifying-glass"></i> search
           </button>
         </form>
       </section>
 
       <section class="book_shelf_container">
         <button id="resetRak" class="btn-red" onclick="resetRak()">
-          <i class="fa-solid fa-trash"></i> Kosong
+          <i class="fa-solid fa-trash"></i> Empty
         </button>
         <div class="book_shelf book_read">
           <h2>Important</h2>
@@ -78,7 +78,7 @@
         </div>
 
         <div class="book_shelf">
-          <h2>Selesai dibaca</h2>
+          <h2>Already read</h2>
           <div id="completeBookshelfList" class="book_list">
             <!-- element is the result of the showBook function -->
           </div>
@@ -87,20 +87,20 @@
       <section class="input_section input_edit_section">
         <form id="editData">
           <div class="input">
-            <label for="inputEditTitle">Judul</label>
+            <label for="inputEditTitle">Title</label>
             <input id="inputEditTitle" type="text" required />
           </div>
           <div class="input">
-            <label for="inputEditAuthor">Penulis</label>
+            <label for="inputEditAuthor">Author</label>
             <input id="inputEditAuthor" type="text" required />
           </div>
           <div class="input">
-            <label for="inputEditYear">Tahun Terbit</label>
+            <label for="inputEditYear">Year</label>
             <input id="inputEditYear" type="number" value="2022" required />
           </div>
-          <button id="bookEditCancel">Batal</button>
+          <button id="bookEditCancel">Cancel</button>
           <button id="bookEditSubmit" type="submit" class="btn-green">
-            Simpan
+            Save
           </button>
         </form>
       </section>
