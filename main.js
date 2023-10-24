@@ -148,18 +148,18 @@ function searchBooks() {
   }
 
   for (const book of books) {
-    if (book.title.toLowerCase().includes(inputSearchValue)) {
-      if (book.bookStatus == false) {
+    if (books.title.toLowerCase().includes(inputSearchValue)) {
+      if (books.bookStatus == false) {
         let el = `
             <article class="book_item">
-               <h3>${book.title}</h3>
-               <p>Penulis : ${book.author}</p>
-               <p>Tahun Terbit : ${book.year}</p>
+               <h3>${books.title}</h3>
+               <p>Penulis : ${books.author}</p>
+               <p>Tahun Terbit : ${books.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Done read</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
-                  <button class="btn-orange" onclick="editBook(${book.id})">Edit book</button>
+                  <button class="btn-green" onclick="changeBookStatus(${books.id})">Done read</button>
+                  <button class="btn-red" onclick="removeBook(${books.id})">Delete book</button>
+                  <button class="btn-orange" onclick="editBook(${books.id})">Edit book</button>
                   </div>
             </article>
             `;
@@ -168,14 +168,14 @@ function searchBooks() {
       } else {
         let el = `
             <article class="book_item">
-               <h3>${book.title}</h3>
-               <p>Penulis : ${book.author}</p>
-               <p>Tahun Terbit : ${book.year}</p>
+               <h3>${books.title}</h3>
+               <p>Penulis : ${books.author}</p>
+               <p>Tahun Terbit : ${books.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})">Not yet read</button>
-                  <button class="btn-red" onclick="removeBook(${book.id})">Delete book</button>
-                  <button class="btn-orange" onclick="editBook(${book.id})">Edit book</button>
+                  <button class="btn-green" onclick="changeBookStatus(${books.id})">Not yet read</button>
+                  <button class="btn-red" onclick="removeBook(${books.id})">Delete book</button>
+                  <button class="btn-orange" onclick="editBook(${books.id})">Edit book</button>
                   </div>
             </article>
             `;
@@ -263,14 +263,14 @@ function showBook(books = []) {
     if (book.bookStatus == false) {
       let el = `
             <article class="book_item">
-               <h3>${book.title}</h3>
-               <p>Penulis : ${book.author}</p>
-               <p>Tahun Terbit : ${book.year}</p>
+               <h3>${books.title}</h3>
+               <p>Penulis : ${books.author}</p>
+               <p>Tahun Terbit : ${books.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-circle-check"></i></button>
-                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBook(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn-green" onclick="changeBookStatus(${books.id})"><i class="fa-solid fa-circle-check"></i></button>
+                  <button class="btn-red" onclick="removeBook(${books.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-orange" onclick="editBook(${books.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                </div>
             </article>
             `;
@@ -279,14 +279,14 @@ function showBook(books = []) {
     } else {
       let el = `
             <article class="book_item">
-               <h3>${book.title}</h3>
-               <p>Penulis : ${book.author}</p>
-               <p>Tahun Terbit : ${book.year}</p>
+               <h3>${books.title}</h3>
+               <p>Penulis : ${books.author}</p>
+               <p>Tahun Terbit : ${books.year}</p>
 
                <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBook(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn-green" onclick="changeBookStatus(${books.id})"><i class="fa-solid fa-rotate-left"></i></button>
+                  <button class="btn-red" onclick="removeBook(${books.id})"><i class="fa-solid fa-trash"></i></button>
+                  <button class="btn-orange" onclick="editBook(${books.id})"><i class="fa-solid fa-pen-to-square"></i></button>
                   </div>
             </article>
             `;
@@ -323,3 +323,5 @@ document.addEventListener("DOMContentLoaded", () => {
     showBook(books);
   }
 });
+
+console.log(books);
