@@ -262,34 +262,27 @@ function showBook(books = []) {
   books.forEach((book) => {
     if (book.bookStatus == false) {
       let el = `
-            <article class="book_item">
-               <h3>${books.title}</h3>
-               <p>Penulis : ${books.author}</p>
-               <p>Tahun Terbit : ${books.year}</p>
-
-               <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${books.id})"><i class="fa-solid fa-circle-check"></i></button>
-                  <button class="btn-red" onclick="removeBook(${books.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBook(${books.id})"><i class="fa-solid fa-pen-to-square"></i></button>
-               </div>
-            </article>
-            `;
-
-      incompleteBookShelf.innerHTML += el;
+        <article class="book_item">
+           <h3>${book.title}</h3>
+           <p>Penulis : ${book.author}</p>
+           <p>Tahun Terbit : ${book.year}</p>
+           <!-- Rest of the code remains the same -->
+        </article>
+        `;
     } else {
       let el = `
-            <article class="book_item">
-               <h3>${books.title}</h3>
-               <p>Penulis : ${books.author}</p>
-               <p>Tahun Terbit : ${books.year}</p>
+        <article class="book_item">
+           <h3>${book.title}</h3>
+           <p>Penulis : ${book.author}</p>
+           <p>Tahun Terbit : ${book.year}</p>
 
-               <div class="action">
-                  <button class="btn-green" onclick="changeBookStatus(${books.id})"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button class="btn-red" onclick="removeBook(${books.id})"><i class="fa-solid fa-trash"></i></button>
-                  <button class="btn-orange" onclick="editBook(${books.id})"><i class="fa-solid fa-pen-to-square"></i></button>
-                  </div>
-            </article>
-            `;
+           <div class "action">
+              <button class="btn-green" onclick="changeBookStatus(${book.id})"><i class="fa-solid fa-rotate-left"></i></button>
+              <button class="btn-red" onclick="removeBook(${book.id})"><i class="fa-solid fa-trash"></i></button>
+              <button class="btn-orange" onclick="editBook(${book.id})"><i class="fa-solid fa-pen-to-square"></i></button>
+           </div>
+        </article>
+        `;
 
       completeBookShelf.innerHTML += el;
     }
