@@ -1,116 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bookshelf</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookshelf &mdash; Managing your book properly</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
     <header>
-      <img src="./assets/book.png" alt="logo" aria-label="Book" />
-      <h1>My Bookshelf</h1>
+        <div class="jumbotron">
+            <section class="right mobile">
+                <img src="./assets/img/jumbotron.jpeg"
+                    alt="seorang wanita yang duduk dan menghadap ke depan sambil membuka laptop">
+            </section>
+            <section class="left">
+                <h1 class="title">
+                    My Bookshelf
+                </h1>
+                <div class="subtitle">
+                    <p>
+                        Managing your book properly,
+                    </p>
+                    <p>
+                        Boost your productivity.
+                    </p>
+                </div>
+                <p>
+                    <a href="#manage" class="button-primary">Manage Now</a>
+                </p>
+            </section>
+            <section class="right desktop">
+                <img src="./assets/img/jumbotron.jpeg"
+                    alt="seorang wanita yang duduk dan menghadap ke depan sambil membuka laptop">
+            </section>
+        </div>
     </header>
 
-    <main>
-      <section class="input_section">
-        <h2>Add new book</h2>
-        <form id="inputBook">
-          <div class="input">
-            <label for="inputTitle">Title</label>
-            <input id="inputTitle" type="text" required />
-          </div>
-          <div class="input">
-            <label for="inputAuthor">Author</label>
-            <input id="inputAuthor" type="text" required />
-          </div>
-          <div class="input">
-            <label for="inputYear">Year</label>
-            <input
-              id="inputYear"
-              type="number"
-              min="1990"
-              value="2022"
-              required
-            />
-          </div>
-          <div class="input_inline">
-            <label for="inputBookStatus">Already Read</label>
-            <input id="inputBookStatus" type="checkbox" />
-          </div>
-          <button id="bookSubmit" type="submit" class="btn-green">
-            Add book to rack
-          </button>
-        </form>
-      </section>
+    <main id="manage">
+        <section class="search">
+            <form id="searchBook">
+                <input id="searchBookTitle" type="text" placeholder="Search book by title">
+            </form>
+        </section>
 
-      <section class="search_section">
-        <h2>Search book</h2>
-        <form id="searchBook">
-          <label for="searchBookTitle">Title</label>
-          <input
-            id="searchBookTitle"
-            type="text"
-            placeholder="add book title"
-          />
-          <button id="searchSubmit" type="submit" class="btn-green">
-            <i class="fa-solid fa-magnifying-glass"></i> search
-          </button>
-        </form>
-      </section>
-
-      <section class="book_shelf_container">
-        <button id="resetRak" class="btn-red" onclick="resetRak()">
-          <i class="fa-solid fa-trash"></i> Empety
-        </button>
-        <div class="book_shelf book_read">
-          <h2>Important</h2>
-          <div id="incompleteBookshelfList" class="book_list">
-            <!-- element is the result of the showBook function -->
-          </div>
-        </div>
-
-        <div class="book_shelf">
-          <h2>Already read</h2>
-          <div id="completeBookshelfList" class="book_list">
-            <!-- element is the result of the showBook function -->
-          </div>
-        </div>
-      </section>
-      <section class="input_section input_edit_section">
-        <form id="editData">
-          <div class="input">
-            <label for="inputEditTitle">Title</label>
-            <input id="inputEditTitle" type="text" required />
-          </div>
-          <div class="input">
-            <label for="inputEditAuthor">Author</label>
-            <input id="inputEditAuthor" type="text" required />
-          </div>
-          <div class="input">
-            <label for="inputEditYear">Year</label>
-            <input id="inputEditYear" type="number" value="2022" required />
-          </div>
-          <button id="bookEditCancel">Cancel</button>
-          <button id="bookEditSubmit" type="submit" class="btn-green">
-            Save
-          </button>
-        </form>
-      </section>
+        <section class="book-container">
+            <div class="book">
+                <h2 class="h2 text-center">
+                    <span>Book List</span>
+                </h2>
+                <a class="button-add">Add New Book <i class="fas fa-plus"></i></a>
+                <div class="form-container">
+                    <form id="book">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input class="form-control" id="title" type="text" placeholder="Book title">
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input class="form-control" id="author" type="text" placeholder="Book author">
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <input class="form-control" id="year" type="number" placeholder="Year publish">
+                        </div>
+                        <div class="form-group">
+                            <input id="isComplete" type="checkbox">
+                            <label for="isComplete">Already read?</label>
+                        </div>
+                        <div class="form-group">
+                            <button class="button-save" id="saveBook" type="button">Save</button>
+                            <button class="button-save" id="updateBook" type="button">Update</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="unfinished-read" class="list-group">
+                </div>
+            </div>
+            <div class="book">
+                <h2 class="h2 text-center">
+                    <span>Finished Read</span>
+                </h2>
+                <a class="button-clear">Clear All <i class="fas fa-trash"></i></a>
+                <div id="finished-read" class="list-group">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-      <h2>This is Footer</h2>
+        <p>&copy; Copyright 2021 <a href="https://virgiawan.id" target="_blank">Virgiawan Teguh Kusuma</p>
     </footer>
 
     <script src="main.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </body>
+</body>
+
 </html>
