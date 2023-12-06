@@ -1,5 +1,17 @@
-const buttonAdd = document.querySelector(".button-add");
-const buttonClear = document.querySelector(".button-clear");
-const formContainer = document.querySelector(".form-container");
-const saveBook = document.getElementById("saveBook");
-const updateBook = document.getElementById("updateBook");
+// localstorage
+const localStorageKey = "bookShelf";
+let bookShelf = [];
+
+// check localstorage support
+const checkLocalStorage = () => {
+  return typeof Storage !== checkValue;
+};
+
+if (checkLocalStorage()) {
+  if (localStorage.getItem(localStorageKey) === null) {
+    bookShelf;
+  } else {
+    bookShelf = JSON.parse(localStorage.getItem(localStorageKey));
+  }
+  localStorage.setItem(localStorageKey, JSON.stringify(bookShelf));
+}
